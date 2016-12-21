@@ -13,14 +13,19 @@ import org.apache.commons.cli.ParseException;
 
 public class YamlCommandLineParser {
 
+    private static final String INPUT_SHORT = "i";
+    private static final String INPUT_LONG = "input";
+    private static final String OVERRIDE_SHORT = "o";
+    private static final String OVERRIDE_LONG = "override";
+
     public CommandLineArguments parseCommandLine(String[] args) throws FileNotFoundException {
         Options options = new Options();
 
-        Option input = new Option("i", "input", true, "input yaml file");
+        Option input = new Option(INPUT_SHORT, INPUT_LONG, true, "input yaml file");
         input.setRequired(true);
         options.addOption(input);
 
-        Option override = new Option("o", "override", true, "override yaml file");
+        Option override = new Option(OVERRIDE_SHORT, OVERRIDE_LONG, true, "override yaml file");
         override.setRequired(true);
         options.addOption(override);
 
@@ -29,8 +34,8 @@ public class YamlCommandLineParser {
 
         try {
             CommandLine cmd = parser.parse(options, args);
-            String inputFile = cmd.getOptionValue("input");
-            String overrideFile = cmd.getOptionValue("override");
+            String inputFile = cmd.getOptionValue(INPUT_LONG);
+            String overrideFile = cmd.getOptionValue(OVERRIDE_LONG);
 
             return new CommandLineArguments(new File(inputFile), new File(overrideFile));
         } catch (ParseException e) {
