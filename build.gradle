@@ -1,0 +1,24 @@
+plugins {
+    id "io.spring.dependency-management" version "1.0.0.RC1"
+    id 'java'
+    id 'eclipse'
+    id 'application'
+}
+
+repositories {
+    jcenter()
+}
+
+dependencyManagement {
+    imports {
+        mavenBom 'com.fasterxml.jackson:jackson-bom:2.8.5'
+    }
+}
+
+dependencies {
+    compile 'com.fasterxml.jackson.core:jackson-databind'
+    compile 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml'
+}
+
+
+mainClassName = "com.epages.YamlMergeApplication"
