@@ -1,0 +1,11 @@
+sample:
+  key1: override-value1
+  key2: orig-value2
+  arr:
+  - value1
+  - value2
+  - value2.2
+  - value3
+  - value4
+other:
+  key1: override-value2

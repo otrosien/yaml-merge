@@ -1,7 +1,6 @@
-package com.epages;
+package com.epages.yaml;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
@@ -18,7 +17,7 @@ public class YamlCommandLineParser {
     private static final String OVERRIDE_SHORT = "o";
     private static final String OVERRIDE_LONG = "override";
 
-    public CommandLineArguments parseCommandLine(String[] args) throws FileNotFoundException {
+    public CommandLineArguments parseCommandLine(String[] args) throws ParseException {
         Options options = new Options();
 
         Option input = new Option(INPUT_SHORT, INPUT_LONG, true, "input yaml file");
@@ -30,7 +29,6 @@ public class YamlCommandLineParser {
         options.addOption(override);
 
         CommandLineParser parser = new DefaultParser();
-        HelpFormatter formatter = new HelpFormatter();
 
         try {
             CommandLine cmd = parser.parse(options, args);
@@ -40,11 +38,9 @@ public class YamlCommandLineParser {
             return new CommandLineArguments(new File(inputFile), new File(overrideFile));
         } catch (ParseException e) {
             System.out.println(e.getMessage());
-            formatter.printHelp("yaml-merge", options);
-
-            System.exit(1);
+            new HelpFormatter().printHelp("yaml-merge", options);
+            throw e;
         }
-        return null;
     }
 
 }

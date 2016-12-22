@@ -1,0 +1,7 @@
+sample:
+  key1: orig-value1
+  key2: orig-value2
+  arr:
+  - value1
+  - value2
+  - value2.2
