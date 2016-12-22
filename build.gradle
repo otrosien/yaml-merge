@@ -24,4 +24,4 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
-mainClassName = "com.epages.YamlMergeApplication"
+mainClassName = "com.epages.yaml.YamlMergeApplication"
