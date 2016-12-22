@@ -15,7 +15,7 @@ public class YamlMergeApplication {
             arguments.validate();
             YamlMapper mapper = new YamlMapper();
             JsonNode merged = new YamlMerger().merge(
-                    mapper.read(arguments.getInput()),
+                    mapper.read(arguments.getSource()),
                     mapper.read(arguments.getOverride())
             );
             mapper.write(new YAMLFactory().createGenerator(System.out), merged);

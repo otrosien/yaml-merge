@@ -7,16 +7,16 @@ import java.util.stream.Stream;
 
 class CommandLineArguments {
 
-    private final File input;
+    private final File source;
     private final File override;
 
-    public CommandLineArguments(File input, File override) {
-        this.input = input;
+    public CommandLineArguments(File source, File override) {
+        this.source = source;
         this.override = override;
     }
 
-    public File getInput() {
-        return input;
+    public File getSource() {
+        return source;
     }
 
     public File getOverride() {
@@ -24,7 +24,7 @@ class CommandLineArguments {
     }
 
     public void validate() {
-        Stream.of(input, override)
+        Stream.of(source, override)
         .filter(file -> !file.exists())
         .forEach(file -> {
             throw new UncheckedIOException(new FileNotFoundException(file.getName()));
