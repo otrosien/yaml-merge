@@ -19,7 +19,13 @@ dependencies {
     testCompile 'org.assertj:assertj-core:3.6.1'
 }
 
+scmVersion {
+    hooks {
+        pre 'fileUpdate', [file: 'README.md', pattern: {v,p -> /($v)/}, replacement: {v, p -> "$v"}]
+        pre 'commit'
+    }
+}
 
 project.version = scmVersion.version
-
 mainClassName = "com.epages.yaml.YamlMergeApplication"
+
