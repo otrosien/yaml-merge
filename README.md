@@ -19,4 +19,12 @@ unzip -o -d ~/yaml-merge build/distributions/yaml-merge-0.1.3.zip
 PATH=$PATH:~/yaml-merge/yaml-merge-0.1.3/bin
 ```
 
+## Releasing
+
+A new release is initiated by the `axion` release plugin. As a result, travis will 
+build the tag and upload the release artifact to github.
+
+```
+./gradlew release
+```
 
