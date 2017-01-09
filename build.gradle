@@ -19,4 +19,7 @@ dependencies {
     testCompile 'org.assertj:assertj-core:3.6.1'
 }
 
+
+project.version = scmVersion.version
+
 mainClassName = "com.epages.yaml.YamlMergeApplication"
