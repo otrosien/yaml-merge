@@ -1,6 +1,6 @@
 # yaml-merge
 
-Merges two YAML files and writes the result to STDOUT. Merging of Array nodes is implemented in a way that both arrays get concatenated.
+Merges two YAML files and writes the result to STDOUT. Merging of Array nodes is implemented by merging array contents based on the same array index.
 
 ```
 usage: yaml-merge
