@@ -12,5 +12,4 @@ env:
   - CI_NAME=travis-ci
   - secure: "cNu7ZSSAk7af71zIkQBQqTF8pLjOdE0oScpm3j2d1TRLdUjj5INMmgCGpB8bhMhJborVPCbl/t1NyJfu2o3eLN1OGd6LxfwCyIE8Fdq9/uLCZh/DhSN3uk1n92o6stIfXBfchzM9lH1OC+2LetqkqyzEQWLNLwwNxrSEe94pJ++v2G5fi9MIIg685v0XJ4lgZNNepOdbPcnEQoR65Ewe1DDKsfKBYxFnmj0b/mtDpHeayfzWXTjjynJRtlimUEm0ikJLXk/KD4RDdi5S9rWydr0D+Ebm8lwsgbLiuFm0Hunzix1sR8wuvxZ0E5r4VquautkbftRCHpWhzG39mYlVzw073UF4cOvCQk93ZW6zWeFbb8ucdqfl2PrKCsgnOEClstziy7rwH8VzbAcxwzcXgobkjeoU+bGied8ymvdDrZHB3hjFTIcjuvuel1lOXvNclRC47ICpWVJC3qE++P1jbhinD2/aEsmHQLDgN3fGWU4RUfQv17q5j/49NbDff+uzTz7QKycNJXwx0lRxdq0yvV8DOa6BEexcaTof5B8nHUJT8VmlEwa7spBCTxYN7T104n5upcPiMbBLTsfZ3um77IJ967vyGqluce2EaGSK9+LgYc2TneGCveEzg4oeP9is62sxG2cWIhjJI6ThWe1He5fmGGvBLIJzhCoL5CYws8M=" # GITHUB_TOKEN
 after_success:
-  - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then ./github-publish.sh; fi'
-
+  - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then ./scripts/github-publish.sh; fi'
