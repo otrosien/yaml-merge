@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ePages-de/yaml-merge.svg?branch=master)](https://travis-ci.org/ePages-de/yaml-merge)
+
 # yaml-merge
 
 Merges two YAML files and writes the result to STDOUT. Merging of Array nodes is implemented by merging array contents based on the same array index.
