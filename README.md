@@ -15,8 +15,8 @@ Create a distribution zip and extract it into a local directory.
 ```
 ./gradlew distZip
 mkdir ~/yaml-merge
-unzip -o -d ~/yaml-merge build/distributions/yaml-merge-0.1.2.zip
-PATH=$PATH:~/yaml-merge/yaml-merge-0.1.2/bin
+unzip -o -d ~/yaml-merge build/distributions/yaml-merge-0.1.3.zip
+PATH=$PATH:~/yaml-merge/yaml-merge-0.1.3/bin
 ```
 
 
