@@ -1,0 +1,5 @@
+sample:
+- name: api-proxy
+  env:
+  - name: JAVA_TOOL_OPTIONS
+    value: '-Xmx256m'

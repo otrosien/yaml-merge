@@ -20,10 +20,18 @@ public class YamlMerger {
             JsonNode valueToBeUpdated = mainNode.get(updatedFieldName);
             JsonNode updatedValue = updateNode.get(updatedFieldName);
 
-            // If the node is an @ArrayNode -> only adds elements
             if (valueToBeUpdated != null && valueToBeUpdated.isArray() && 
                 updatedValue.isArray()) {
-                ((ArrayNode) valueToBeUpdated).addAll((ArrayNode)updatedValue);
+                ArrayNode updatedArrayNode = (ArrayNode)updatedValue;
+                ArrayNode arrayNodeToBeUpdated = (ArrayNode)valueToBeUpdated;
+                for(int i = 0; updatedArrayNode.has(i);++i) {
+                    if(arrayNodeToBeUpdated.has(i)) {
+                        JsonNode mergedNode = merge(arrayNodeToBeUpdated.get(i), updatedArrayNode.get(i));
+                        arrayNodeToBeUpdated.set(i, mergedNode);
+                    } else {
+                        arrayNodeToBeUpdated.add(updatedArrayNode.get(i));
+                    }
+                }
             // if the Node is an @ObjectNode
             } else if (valueToBeUpdated != null && valueToBeUpdated.isObject()) {
                 merge(valueToBeUpdated, updatedValue);

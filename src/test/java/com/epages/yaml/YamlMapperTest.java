@@ -1,6 +1,6 @@
 package com.epages.yaml;
 
-import static org.junit.Assert.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.StringWriter;
 
@@ -17,7 +17,7 @@ public class YamlMapperTest {
         YamlMapper mapper = new YamlMapper();
         StringWriter writer = new StringWriter();
         mapper.write(new YAMLFactory().createGenerator(writer), node1);
-        assertEquals(node1, new YamlMapper().read(writer.toString()));
+        assertThat(new YamlMapper().read(writer.toString())).isEqualTo(node1);
     }
 
 }

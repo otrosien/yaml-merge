@@ -1,6 +1,6 @@
 package com.epages.yaml;
 
-import static org.junit.Assert.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.File;
 import java.io.UncheckedIOException;
@@ -12,15 +12,15 @@ public class YamlCommandLineParserTest {
     @Test
     public void test_parse_short() throws Exception {
         CommandLineArguments args = new YamlCommandLineParser().parseCommandLine(new String[] {"-s", "file1", "-o", "file2"});
-        assertEquals(args.getSource(), new File("file1"));
-        assertEquals(args.getOverride(), new File("file2"));
+        assertThat(args.getSource()).isEqualTo(new File("file1"));
+        assertThat(args.getOverride()).isEqualTo(new File("file2"));
     }
 
     @Test
     public void test_parse_long() throws Exception {
         CommandLineArguments args = new YamlCommandLineParser().parseCommandLine(new String[] {"--source", "file1", "--override", "file2"});
-        assertEquals(args.getSource(), new File("file1"));
-        assertEquals(args.getOverride(), new File("file2"));
+        assertThat(args.getSource()).isEqualTo(new File("file1"));
+        assertThat(args.getOverride()).isEqualTo(new File("file2"));
     }
 
     @Test(expected=UncheckedIOException.class)
