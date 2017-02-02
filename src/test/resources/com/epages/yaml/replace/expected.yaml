@@ -1,0 +1,7 @@
+sample:
+  key1: override-value1
+  arr:
+  - object1: "obj1"
+    replacementKey: anyValue
+  - object2: "anyName"
+    somethingElse: anyvalue

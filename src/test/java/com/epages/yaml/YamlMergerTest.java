@@ -35,4 +35,12 @@ public class YamlMergerTest {
         assertThat(merged).isEqualTo(expected);
     }
 
+    @Test
+    public void should_merge_with_replacement() throws Exception {
+        JsonNode node1  = new YamlMapper().read(getClass().getResourceAsStream("/com/epages/yaml/replace/input.yaml"));
+        JsonNode node2  = new YamlMapper().read(getClass().getResourceAsStream("/com/epages/yaml/replace/override.yaml"));
+        JsonNode expected  = new YamlMapper().read(getClass().getResourceAsStream("/com/epages/yaml/replace/expected.yaml"));
+        JsonNode merged = new YamlMerger().merge(node1, node2);
+        assertThat(merged).isEqualTo(expected);
+    }
 }
