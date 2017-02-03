@@ -20,7 +20,7 @@ public class YamlMerger {
             JsonNode valueToBeUpdated = mainNode.get(updatedFieldName);
             JsonNode updatedValue = updateNode.get(updatedFieldName);
 
-            if (valueToBeUpdated != null && valueToBeUpdated.isArray() && 
+            if (valueToBeUpdated != null && valueToBeUpdated.isArray() &&
                 updatedValue.isArray()) {
                 ArrayNode updatedArrayNode = (ArrayNode)updatedValue;
                 ArrayNode arrayNodeToBeUpdated = (ArrayNode)valueToBeUpdated;
@@ -33,10 +33,15 @@ public class YamlMerger {
                     }
                 }
             // if the Node is an @ObjectNode
-            } else if (valueToBeUpdated != null && valueToBeUpdated.isObject()) {
+            } else if (valueToBeUpdated != null && valueToBeUpdated.isObject() && updatedValue != null && !updatedValue.isNull()) {
                 merge(valueToBeUpdated, updatedValue);
             } else {
-                ((ObjectNode) mainNode).replace(updatedFieldName, updatedValue);
+                if (updatedValue != null && !updatedValue.isNull()) {
+                    ((ObjectNode) mainNode).replace(updatedFieldName, updatedValue);
+                }
+                else {
+                    ((ObjectNode) mainNode).remove(updatedFieldName);
+                }
             }
         }
         if (updateNode instanceof TextNode) {

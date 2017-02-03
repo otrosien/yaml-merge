@@ -1,0 +1,8 @@
+sample:
+  key1: orig-value1
+  arr:
+  - object1: "obj1"
+    toBeReplaced: oldValue
+  - object2: "anyName"
+    replaceMeToo:
+      someKey: random
