@@ -8,21 +8,20 @@ usage: yaml-merge
  -o,--override <arg>   override yaml file
 ```
 
-## Installation
+## Local Installation
 
-Create a distribution zip and extract it into a local directory.
+Build using GraalVM
 
 ```
-./gradlew distZip
-mkdir ~/yaml-merge
-unzip -o -d ~/yaml-merge build/distributions/yaml-merge-0.1.3.zip
-PATH=$PATH:~/yaml-merge/yaml-merge-0.1.3/bin
+export JAVA_HOME=$GRAALVM_HOME
+./gradlew nativeCompile
+cp ./build/native/nativeCompile/yaml-merge /usr/local/bin
 ```
 
 ## Releasing
 
-A new release is initiated by the `axion` release plugin. As a result, travis will 
-build the tag and upload the release artifact to github.
+A new release is initiated by the `axion` release plugin. As a result, GitHub will 
+build the tag and upload the release artifact to the release page.
 
 ```
 ./gradlew release

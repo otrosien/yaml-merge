@@ -1,8 +1,8 @@
 build/
-.*
 !.gitignore
 bin/
 *.iws
 *.iml
 *.ipr
 .idea/
+.gradle
