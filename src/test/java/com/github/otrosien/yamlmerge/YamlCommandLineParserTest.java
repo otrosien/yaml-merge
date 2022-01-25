@@ -1,4 +1,4 @@
-package com.epages.yaml;
+package com.github.otrosien.yamlmerge;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

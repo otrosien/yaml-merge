@@ -1,4 +1,4 @@
-package com.epages.yaml;
+package com.github.otrosien.yamlmerge;
 
 import java.io.File;
 import java.io.FileNotFoundException;

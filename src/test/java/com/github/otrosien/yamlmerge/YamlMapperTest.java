@@ -1,4 +1,4 @@
-package com.epages.yaml;
+package com.github.otrosien.yamlmerge;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -13,7 +13,7 @@ public class YamlMapperTest {
 
     @Test
     public void test_roundtrip() throws Exception {
-        JsonNode node1  = new YamlMapper().read(getClass().getResourceAsStream("/com/epages/yaml/simple/input.yaml"));
+        JsonNode node1  = new YamlMapper().read(getClass().getResourceAsStream("/com/github/otrosien/yamlmerge/simple/input.yaml"));
         YamlMapper mapper = new YamlMapper();
         StringWriter writer = new StringWriter();
         mapper.write(new YAMLFactory().createGenerator(writer), node1);
