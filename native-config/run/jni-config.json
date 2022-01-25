@@ -1,6 +1,6 @@
 [
 {
-  "name":"com.epages.yaml.YamlMergeApplication",
+  "name":"com.github.otrosien.yamlmerge.YamlMergeApplication",
   "methods":[{"name":"main","parameterTypes":["java.lang.String[]"] }]}
 ,
 {

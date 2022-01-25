@@ -49,5 +49,5 @@ scmVersion {
 }
 
 project.version = scmVersion.version
-mainClassName = "com.epages.yaml.YamlMergeApplication"
+mainClassName = "com.github.otrosien.yamlmerge.YamlMergeApplication"
 
